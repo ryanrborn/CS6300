@@ -23,19 +23,30 @@ namespace cs6300{
 		for(int i = 0; i < block->instructions.size(); i++){
 			cs6300::ThreeAddressInstruction inst = block->instructions.at(i);
 
-			// if values already mapped, rewrite instruction
-			if(rewrites[inst.src1]){
-				inst.src1 = rewrites[inst.src1];
-			}
-
-			if(rewrites[inst.src2]){
-				inst.src2 = rewrites[inst.src2];
+			// since the syntax for storing memory is flipped, we'll need to flip the rewrites
+			if(inst.op == ThreeAddressInstruction::StoreMemory){
+				if(rewrites[inst.dest]){
+					inst.dest = rewrites[inst.dest];
+				}
+			}else{
+				// if values already mapped, rewrite instruction
+				if(rewrites[inst.src1]){
+					inst.src1 = rewrites[inst.src1];
+				}
+				if(rewrites[inst.src2]){
+					inst.src2 = rewrites[inst.src2];
+				}
 			}
 
 			// reset instruction
 			block->instructions.at(i) = inst;
-			// generate key
-			std::string key = std::to_string(inst.op) + std::to_string(inst.src1) + std::to_string(inst.src2);
+
+			std::string key;
+			if(inst.op == ThreeAddressInstruction::StoreMemory){
+				key = std::to_string(inst.op) + std::to_string(inst.dest) + std::to_string(inst.src1);
+			}else{
+				key = std::to_string(inst.op) + std::to_string(inst.src1) + std::to_string(inst.src2);
+			}
 
 			if(expressions[key]){
 				rewrites[inst.dest] = expressions[key];
