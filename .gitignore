@@ -3,4 +3,11 @@ CMakeCache.txt
 CMakeFiles
 Makefile
 cmake_install.cmake
-
+TestFiles
+cpsl
+main.cpp
+parser.cpp
+parser.hpp
+scanner.cpp
+out.asm
+*.cpsl

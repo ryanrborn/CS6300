@@ -41,7 +41,7 @@ class ThreeAddressInstruction
       WriteStr
     };
     ThreeAddressInstruction(Type op,int dest,int src1,int src2);
-  private:
+  // private:
     Type op;
     int dest;
     int src1;

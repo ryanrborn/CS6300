@@ -1,6 +1,8 @@
 #ifndef CS6300_OPTIMIZER_HPP
 #define CS6300_OPTIMIZER_HPP
 
+#include "../AST_INC/AST/BasicBlock.hpp"
+
 #include <memory>
 
 namespace cs6300
@@ -12,8 +14,8 @@ namespace cs6300
   /*Returns an improved control flow graph*/
   std::pair<std::shared_ptr<BasicBlock>, std::shared_ptr<BasicBlock>> optimizer(
       std::pair<std::shared_ptr<BasicBlock>, std::shared_ptr<BasicBlock>>);
+	void printBasicBlock(std::shared_ptr<cs6300::BasicBlock> block);
 }
 
 
 #endif
-

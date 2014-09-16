@@ -9,7 +9,7 @@ FLEX_TARGET(CpslScanner FrontEnd/scanner.l ${CMAKE_CURRENT_BINARY_DIR}/scanner.c
 ADD_FLEX_BISON_DEPENDENCY(CpslScanner CpslParser)
 
 include_directories(
-    ${CMAKE_CURRENT_BINARY_DIR} 
+    ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/AST_INC)
 
@@ -136,6 +136,7 @@ list(APPEND cpsl_srcs ${backend_srcs})
 
 set(optimization_srcs
 Optimizations/Optimizer.hpp
+Optimizations/SubExpressionElimination.hpp
 Optimizations/Optimizer.cpp
 )
 source_group("Optimizations" FILES ${optimization_srcs})
