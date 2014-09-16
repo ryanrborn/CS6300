@@ -24,17 +24,17 @@ namespace cs6300{
 			cs6300::ThreeAddressInstruction inst = block->instructions.at(i);
 
 			// since the syntax for storing memory is flipped, we'll need to flip the rewrites
-			if(inst.op == ThreeAddressInstruction::StoreMemory){
-				if(rewrites[inst.dest]){
-					inst.dest = rewrites[inst.dest];
+			if(inst.getOp() == ThreeAddressInstruction::StoreMemory){
+				if(rewrites[inst.getDest()]){
+					inst.setDest(rewrites[inst.getDest()]);
 				}
 			}else{
 				// if values already mapped, rewrite instruction
-				if(rewrites[inst.src1]){
-					inst.src1 = rewrites[inst.src1];
+				if(rewrites[inst.getSrc1()]){
+					inst.setSrc1(rewrites[inst.getSrc1()]);
 				}
-				if(rewrites[inst.src2]){
-					inst.src2 = rewrites[inst.src2];
+				if(rewrites[inst.getSrc2()]){
+					inst.setSrc2(rewrites[inst.getSrc2()]);
 				}
 			}
 
@@ -42,18 +42,18 @@ namespace cs6300{
 			block->instructions.at(i) = inst;
 
 			std::string key;
-			if(inst.op == ThreeAddressInstruction::StoreMemory){
-				key = std::to_string(inst.op) + std::to_string(inst.dest) + std::to_string(inst.src1);
+			if(inst.getOp() == ThreeAddressInstruction::StoreMemory){
+				key = std::to_string(inst.getOp()) + std::to_string(inst.getDest()) + std::to_string(inst.getSrc1());
 			}else{
-				key = std::to_string(inst.op) + std::to_string(inst.src1) + std::to_string(inst.src2);
+				key = std::to_string(inst.getOp()) + std::to_string(inst.getSrc1()) + std::to_string(inst.getSrc2());
 			}
 
 			if(expressions[key]){
-				rewrites[inst.dest] = expressions[key];
+				rewrites[inst.getDest()] = expressions[key];
 				// queue for deletion
 				toDelete.push_back(i);
 			}else{
-				expressions[key] = inst.dest;
+				expressions[key] = inst.getDest();
 			}
 		}
 
