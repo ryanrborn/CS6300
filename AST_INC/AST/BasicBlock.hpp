@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <vector>
+#include <iostream>
 #include "ThreeAddressInstruction.hpp"
 
 namespace cs6300
@@ -14,6 +15,11 @@ class BasicBlock
   std::shared_ptr<BasicBlock> jumpTo;
   std::shared_ptr<BasicBlock> branchTo;
   int branchOn;
+  void printInsts(){
+    for(auto i : instructions){
+      std::cout << "\t" << i.toString() << std::endl;
+    }
+  }
 };
 }
 #endif

@@ -18,7 +18,7 @@ namespace cs6300{
 
 		std::cout << "before: " << block->instructions.size() << std::endl;
 
-		cs6300::printBasicBlock(block);
+		block->printInsts();
 
 		for(int i = 0; i < block->instructions.size(); i++){
 			cs6300::ThreeAddressInstruction inst = block->instructions.at(i);
@@ -68,7 +68,7 @@ namespace cs6300{
 		// follow branch and jump paths
 		std::cout << "after: " << block->instructions.size() << std::endl;
 
-		cs6300::printBasicBlock(block);
+		block->printInsts();
 
 		std::cout << std::endl;
 	}

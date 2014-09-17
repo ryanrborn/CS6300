@@ -24,10 +24,3 @@ cs6300::optimizer(std::pair<std::shared_ptr<cs6300::BasicBlock>,
 {
   return original;
 }
-
-// debugging...
-void cs6300::printBasicBlock(std::shared_ptr<cs6300::BasicBlock> block){
-  for (int i=0; i<block->instructions.size(); i++){
-    std::cout << "\t" << block->instructions[i].toString() << std::endl;
-  }
-}
