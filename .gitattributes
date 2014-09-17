@@ -1,0 +1,3 @@
+# Set End of Line for files
+*.cpp text eol=LF
+*.hpp text eol=LF
