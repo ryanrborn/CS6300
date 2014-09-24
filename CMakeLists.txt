@@ -138,7 +138,6 @@ set(optimization_srcs
 Optimizations/Optimizer.hpp
 Optimizations/Algorithm.hpp
 Optimizations/TraverseBlocks.hpp
-Optimizations/Algorithms/ResetVisit.hpp
 Optimizations/Algorithms/SubExpressionElimination.hpp
 Optimizations/Algorithms/MaximizeBlocks.hpp
 Optimizations/Optimizer.cpp

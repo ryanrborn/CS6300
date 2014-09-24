@@ -12,6 +12,10 @@
 std::shared_ptr<cs6300::Program>
 cs6300::optimizer(std::shared_ptr<cs6300::Program> original)
 {
+  // do some function inlining here... or in the cfg
+  // will have to merge symbol tables, piping parameters and return statements
+  // the book does it in the cfg... so I'll have help there.
+  std::cout << "got a program" << std::endl;
   return original;
 }
 
@@ -21,14 +25,7 @@ std::pair<std::shared_ptr<cs6300::BasicBlock>,
 cs6300::optimizer(std::pair<std::shared_ptr<cs6300::BasicBlock>,
                             std::shared_ptr<cs6300::BasicBlock>> original)
 {
-  // first run through the maximize blocks algorithm
-  auto mb = std::make_shared<cs6300::MaximizeBlocks>();
-  cs6300::traverseBlocks(original.first, mb);
-  cs6300::traverseBlocks(original.second, mb);
-
-  cs6300::resetVisits(original.first);
-  cs6300::resetVisits(original.second);
-
+  std::cout << "got a pair of basic blocks" << std::endl;
   // now run through the common subexpression elimination algorithm
   auto see = std::make_shared<cs6300::SubExpressionElimination>();
   cs6300::traverseBlocks(original.first, see);
