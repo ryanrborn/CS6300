@@ -4,6 +4,7 @@
 #include <memory>
 #include <vector>
 #include <iostream>
+#include <string>
 #include "ThreeAddressInstruction.hpp"
 
 namespace cs6300
@@ -22,6 +23,9 @@ class BasicBlock
       std::cout << "\t" << i.toString() << std::endl;
     }
   }
+  std::string getLabel();
+  private:
+  std::string label;
 };
 }
 #endif
