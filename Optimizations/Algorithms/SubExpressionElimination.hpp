@@ -18,9 +18,9 @@ namespace cs6300{
 			std::map<int, int> rewrites;
 			std::vector<int> toDelete;
 
-			std::cout << "before: " << block->instructions.size() << std::endl;
+			// std::cout << "before: " << block->instructions.size() << std::endl;
 
-			block->printInsts();
+			// block->printInsts();
 
 			for(int i = 0; i < block->instructions.size(); i++){
 				cs6300::ThreeAddressInstruction inst = block->instructions.at(i);
@@ -67,12 +67,11 @@ namespace cs6300{
 				block->instructions.erase(block->instructions.begin()+i);
 			}
 
-			// follow branch and jump paths
-			std::cout << "after: " << block->instructions.size() << std::endl;
+			// std::cout << "after: " << block->instructions.size() << std::endl;
 
-			block->printInsts();
+			// block->printInsts();
 
-			std::cout << std::endl;
+			// std::cout << std::endl;
 		}
 	};
 }

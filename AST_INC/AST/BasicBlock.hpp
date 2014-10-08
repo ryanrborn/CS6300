@@ -3,7 +3,6 @@
 
 #include <memory>
 #include <vector>
-#include <iostream>
 #include <string>
 #include "ThreeAddressInstruction.hpp"
 
@@ -16,13 +15,6 @@ class BasicBlock
   std::shared_ptr<BasicBlock> jumpTo;
   std::shared_ptr<BasicBlock> branchTo;
   int branchOn;
-  bool visited;
-  BasicBlock():visited(false){}
-  void printInsts(){
-    for(auto i : instructions){
-      std::cout << "\t" << i.toString() << std::endl;
-    }
-  }
   std::string getLabel();
   private:
   std::string label;
