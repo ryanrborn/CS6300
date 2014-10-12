@@ -140,6 +140,8 @@ Optimizations/Optimizer.hpp
 Optimizations/Algorithm.hpp
 Optimizations/Algorithms/SubExpressionElimination.hpp
 Optimizations/Algorithms/MaximizeBlocks.hpp
+Optimizations/Algorithms/RegisterAllocation.hpp
+Optimizations/Algorithms/RegisterAllocation.cpp
 Optimizations/VisitedBlocks.hpp
 Optimizations/VisitedBlocks.cpp
 Optimizations/Optimizer.cpp

@@ -20,7 +20,7 @@ namespace cs6300{
 	void traverseBlocks(std::shared_ptr<cs6300::BasicBlock> block, std::shared_ptr<cs6300::Algorithm> algo){
 		auto vb = VisitedBlocks::instance();
 		if(vb->isVisited(block)){
-			std::cout << "block visited" << std::endl;
+			// std::cout << "block visited" << std::endl;
 			return;
 		}
 		algo->execute(block);

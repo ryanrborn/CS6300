@@ -42,6 +42,8 @@ cs6300::optimizer(std::pair<std::shared_ptr<cs6300::BasicBlock>,
   cs6300::traverseBlocks(original.first, see);
   cs6300::traverseBlocks(original.second, see);
 
+  vb->reset();
+
 
 
   // last is register allocation
