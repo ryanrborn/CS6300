@@ -1,12 +1,13 @@
 *.swp
+.idea/*
 CMakeCache.txt
 CMakeFiles
 Makefile
-cmake_install.cmake
 TestFiles
+cmake_install.cmake
 cpsl
+*.cpsl
+out.asm
 parser.cpp
 parser.hpp
 scanner.cpp
-out.asm
-*.cpsl

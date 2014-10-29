@@ -8,6 +8,7 @@ namespace cs6300
 {
 class ThreeAddressInstruction
 {
+<<<<<<< HEAD
   public:
     enum Type
     {
@@ -95,7 +96,6 @@ class ThreeAddressInstruction
     int src1;
     int src2;
 };
-std::ostream& operator<<(std::ostream&,ThreeAddressInstruction);
-
+std::ostream& operator<<(std::ostream&, ThreeAddressInstruction);
 }
 #endif

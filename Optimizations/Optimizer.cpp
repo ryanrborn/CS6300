@@ -1,4 +1,5 @@
 #include "Optimizer.hpp"
+<<<<<<< HEAD
 #include "../AST_INC/AST/Program.hpp"
 #include "../AST_INC/AST/Statements/Statement.hpp"
 #include "Algorithms/SubExpressionElimination.hpp"
@@ -9,6 +10,11 @@
 
 #include <iostream>
 #include <vector>
+=======
+#include "MaximizeBlocks/MaximizeBlocks.hpp"
+
+#include <sstream>
+>>>>>>> mergeblocks
 
 /*Add new AST based optimizations here*/
 std::shared_ptr<cs6300::Program>
@@ -26,15 +32,9 @@ std::pair<std::shared_ptr<cs6300::BasicBlock>,
 cs6300::optimizer(std::pair<std::shared_ptr<cs6300::BasicBlock>,
                             std::shared_ptr<cs6300::BasicBlock>> original)
 {
+  maximizeBlocks(original);
+
   auto vb = VisitedBlocks::instance();
-  vb->reset();
-
-  // first let's maximize our block sizes
-  auto mb = std::make_shared<cs6300::MaximizeBlocks>();
-  cs6300::traverseBlocks(original.first, mb);
-  cs6300::traverseBlocks(original.second, mb);
-
-  // reset visited blocks
   vb->reset();
 
   // now run through the common subexpression elimination algorithm
