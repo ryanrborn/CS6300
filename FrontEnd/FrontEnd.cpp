@@ -199,6 +199,7 @@ int cs6300::AddField(int listIndex, int typeIndex)
   for (auto&& id : *list)
   {
     newType->fields[id] = type;
+    state->getSymTable()->addVariable(id, type);
   }
   return state->types.add(newType);
 }
@@ -640,6 +641,7 @@ void cs6300::AddMain(int body)
 {
   auto state = FrontEndState::instance();
   auto b = state->statementLists.get(body);
+  b->push_back(std::make_shared<cs6300::StopStatement>());
   auto program = state->getProgram();
   std::copy(b->begin(), b->end(), std::back_inserter(program->main));
 }

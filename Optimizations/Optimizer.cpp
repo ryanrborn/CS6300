@@ -1,5 +1,4 @@
 #include "Optimizer.hpp"
-<<<<<<< HEAD
 #include "../AST_INC/AST/Program.hpp"
 #include "../AST_INC/AST/Statements/Statement.hpp"
 #include "MaximizeBlocks/MaximizeBlocks.hpp"
@@ -57,3 +56,4 @@ cs6300::optimizer(std::pair<std::shared_ptr<cs6300::BasicBlock>,
   stream << block;
   return stream.str();
 }*/
+
