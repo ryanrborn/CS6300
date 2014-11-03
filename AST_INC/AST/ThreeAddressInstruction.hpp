@@ -8,7 +8,6 @@ namespace cs6300
 {
 class ThreeAddressInstruction
 {
-<<<<<<< HEAD
   public:
     enum Type
     {

@@ -3,8 +3,8 @@
 #include "MaximizeBlocks.hpp"
 #include "../../AST_INC/AST/BasicBlock.hpp"
 #include "../../AST_INC/AST/ThreeAddressInstruction.hpp"
-#include "VisitedBlocks.hpp"
-#include "NumParents.hpp"
+#include "../Tools/VisitedBlocks.hpp"
+#include "../Tools/NumParents.hpp"
 
 void cs6300::maximizeBlocks(std::pair<std::shared_ptr<cs6300::BasicBlock>,
                             std::shared_ptr<cs6300::BasicBlock>> original)

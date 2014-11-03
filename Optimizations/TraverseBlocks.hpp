@@ -5,7 +5,7 @@
 #include "../AST_INC/AST/ThreeAddressInstruction.hpp"
 #include "../AST_INC/AST/Expressions/AdditionExpression.hpp"
 #include "Algorithm.hpp"
-#include "VisitedBlocks.hpp"
+#include "Tools/VisitedBlocks.hpp"
 
 #include <iostream>
 #include <algorithm>

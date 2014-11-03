@@ -2,19 +2,15 @@
 <<<<<<< HEAD
 #include "../AST_INC/AST/Program.hpp"
 #include "../AST_INC/AST/Statements/Statement.hpp"
+#include "MaximizeBlocks/MaximizeBlocks.hpp"
 #include "Algorithms/SubExpressionElimination.hpp"
-#include "Algorithms/MaximizeBlocks.hpp"
 #include "Algorithms/RegisterAllocation.hpp"
 #include "TraverseBlocks.hpp"
-#include "VisitedBlocks.hpp"
+#include "Tools/VisitedBlocks.hpp"
 
 #include <iostream>
 #include <vector>
-=======
-#include "MaximizeBlocks/MaximizeBlocks.hpp"
-
 #include <sstream>
->>>>>>> mergeblocks
 
 /*Add new AST based optimizations here*/
 std::shared_ptr<cs6300::Program>
