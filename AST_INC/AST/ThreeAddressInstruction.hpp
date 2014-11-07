@@ -25,6 +25,7 @@ class ThreeAddressInstruction
       IsNotEqual,
       LoadLabel,
       LoadMemory,
+      LoadMemoryOffset,
       LoadValue,
       Modulo,
       Multiply,
@@ -32,7 +33,9 @@ class ThreeAddressInstruction
       Or,
       ReadChar,
       ReadInt,
+      RestoreFrame,
       Stop,
+      StoreFrame,
       StoreMemory,
       Subtract,
       UnaryMinus,
@@ -97,4 +100,5 @@ class ThreeAddressInstruction
 };
 std::ostream& operator<<(std::ostream&, ThreeAddressInstruction);
 }
+
 #endif
