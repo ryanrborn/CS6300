@@ -19,6 +19,9 @@
 
 namespace cs6300 {
 
+typedef std::pair<std::shared_ptr<cs6300::BasicBlock>, std::shared_ptr<cs6300::BasicBlock>> FlowGraph;
+typedef std::shared_ptr<cs6300::BasicBlock> BasicBlockPointer;
+
 
 std::map<std::shared_ptr<cs6300::BasicBlock>, std::vector<std::shared_ptr<cs6300::BasicBlock>>> buildParentMap(std::shared_ptr<cs6300::BasicBlock> flowGraph);
 

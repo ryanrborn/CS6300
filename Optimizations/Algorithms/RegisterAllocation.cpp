@@ -106,11 +106,13 @@ void cs6300::RegisterAllocation::buildMap(std::shared_ptr<BasicBlock> block){
 		if(
 			inst.getOp() != cs6300::ThreeAddressInstruction::LoadValue &&
 			inst.getOp() != cs6300::ThreeAddressInstruction::LoadMemory &&
+			inst.getOp() != cs6300::ThreeAddressInstruction::LoadMemoryOffset &&
 			inst.getOp() != cs6300::ThreeAddressInstruction::LoadLabel &&
 			inst.getOp() != cs6300::ThreeAddressInstruction::ReadChar &&
 			inst.getOp() != cs6300::ThreeAddressInstruction::ReadInt &&
 			inst.getOp() != cs6300::ThreeAddressInstruction::Stop &&
-			inst.getOp() != cs6300::ThreeAddressInstruction::StoreMemory
+			inst.getOp() != cs6300::ThreeAddressInstruction::StoreMemory &&
+			inst.getOp() != cs6300::ThreeAddressInstruction::WriteStr
 		){
 			// see if src1 is a live register
 			if(inst.getSrc1() != kill && std::find(live.begin(), live.end(), inst.getSrc1()) == live.end()){
@@ -133,11 +135,13 @@ void cs6300::RegisterAllocation::buildMap(std::shared_ptr<BasicBlock> block){
 			}
 		}
 
-		// std::cout << inst.toString() << "    \t";
-		// for(int j : live){
-		// 	std::cout << j << ",";
+		// if(inst.getOp() == cs6300::ThreeAddressInstruction::LoadMemoryOffset){
+		// 	std::cout << inst.toString() << "    \t";
+		// 	for(int j : live){
+		// 		std::cout << j << ",";
+		// 	}
+		// 	std::cout << std::endl;
 		// }
-		// std::cout << std::endl;
 
 		liveness[sig] = live;
 	}
@@ -194,6 +198,8 @@ void cs6300::RegisterAllocation::reassignRegisters(std::shared_ptr<BasicBlock> b
 		// std::cout << "before:" << std::endl << block->instructions[i].toString() << std::endl;
 		if(
 			block->instructions[i].getOp() != cs6300::ThreeAddressInstruction::LoadValue &&
+			block->instructions[i].getOp() != cs6300::ThreeAddressInstruction::LoadMemoryOffset &&
+			block->instructions[i].getOp() != cs6300::ThreeAddressInstruction::WriteStr &&
 			registerMap[block->instructions[i].getSrc1()]
 		){
 			block->instructions[i].setSrc1(registerMap[block->instructions[i].getSrc1()]);
@@ -204,6 +210,7 @@ void cs6300::RegisterAllocation::reassignRegisters(std::shared_ptr<BasicBlock> b
 			block->instructions[i].getOp() != cs6300::ThreeAddressInstruction::WriteChar &&
 			block->instructions[i].getOp() != cs6300::ThreeAddressInstruction::WriteInt &&
 			block->instructions[i].getOp() != cs6300::ThreeAddressInstruction::WriteStr &&
+			block->instructions[i].getOp() != cs6300::ThreeAddressInstruction::LoadMemoryOffset &&
 			registerMap[block->instructions[i].getSrc2()]
 		){
 			block->instructions[i].setSrc2(registerMap[block->instructions[i].getSrc2()]);

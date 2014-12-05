@@ -141,7 +141,7 @@ std::ostream& cs6300::operator<<(std::ostream& out,
   case cs6300::ThreeAddressInstruction::WriteChar:
     out << "li $v0, 11" << std::endl;
     out << "\tmove $a0, $" << i.src1 << std::endl;
-    out << "\tsyscall";
+    out << "\tsyscall    # writing a char";
     break;
   case cs6300::ThreeAddressInstruction::WriteInt:
     out << "li $v0, 1" << std::endl;

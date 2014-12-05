@@ -148,29 +148,32 @@ list(APPEND cpsl_srcs ${backend_srcs})
 
 set(optimization_srcs
 Optimizations/Optimizer.hpp
+Optimizations/Optimizer.cpp
+Optimizations/FlowGraph.hpp
+Optimizations/FlowGraph.cpp
 Optimizations/Algorithm.hpp
 Optimizations/Algorithms/SubExpressionElimination.hpp
-Optimizations/Algorithms/MaximizeBlocks.hpp
 Optimizations/Algorithms/RegisterAllocation.hpp
 Optimizations/Algorithms/RegisterAllocation.cpp
-Optimizations/VisitedBlocks.hpp
-Optimizations/VisitedBlocks.cpp
-Optimizations/Optimizer.cpp
-Optimizations/MaximizeBlocks/VisitedBlocks.hpp
-Optimizations/MaximizeBlocks/VisitedBlocks.cpp
-Optimizations/MaximizeBlocks/NumParents.hpp
-Optimizations/MaximizeBlocks/NumParents.cpp
+Optimizations/Algorithms/CodeMotion.hpp
+Optimizations/Algorithms/CodeMotion.cpp
+Optimizations/Tools/VisitedBlocks.hpp
+Optimizations/Tools/VisitedBlocks.cpp
+Optimizations/Tools/NumParents.hpp
+Optimizations/Tools/NumParents.cpp
 Optimizations/MaximizeBlocks/MaximizeBlocks.hpp
 Optimizations/MaximizeBlocks/MaximizeBlocks.cpp
+Optimizations/Tools/Clean.hpp
+Optimizations/Tools/Clean.cpp
 )
 source_group("Optimizations" FILES ${optimization_srcs})
 list(APPEND cpsl_srcs ${optimization_srcs})
 
-file(GLOB unittests Testing/UnitTests/*.cpp)
+# file(GLOB unittests Testing/UnitTests/*.cpp)
 list(APPEND cpsl_srcs ${unittests})
 
 add_executable(cpsl ${cpsl_srcs})
 
-target_link_libraries(cpsl ${FLEX_LIBRARIES} ${BISON_LIBRARIES} gtest)
+target_link_libraries(cpsl ${FLEX_LIBRARIES} ${BISON_LIBRARIES})
 
-add_test(NAME runUnitTests COMMAND cpsl -test)
+# add_test(NAME runUnitTests COMMAND cpsl -test)

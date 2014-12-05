@@ -72,6 +72,7 @@ public:
       case IsNotEqual: return "IsNotEqual";
       case LoadLabel: return "LoadLabel";
       case LoadMemory: return "LoadMemory";
+      case LoadMemoryOffset: return "LoadMemoryOffset";
       case LoadValue: return "LoadValue";
       case Modulo: return "Modulo";
       case Multiply: return "Multiply";
